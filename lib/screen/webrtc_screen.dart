@@ -30,12 +30,13 @@ class _WebrtcScreenState extends State<WebrtcScreen> {
 
   getVideoFromUser() async {
     final Map<String, dynamic> mediaConstraints = {
-      'audio': false,
+      'audio': true,
       'video': {'facingMode': 'user',},
     };
 
     MediaStream stream = await navigator.getUserMedia(mediaConstraints);
     _rtcVideoRenderer.srcObject = stream;
+    _rtcVideoRenderer.mirror = true;
   }
 
 
